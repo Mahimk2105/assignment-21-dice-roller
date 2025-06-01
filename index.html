@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3D Dice Roller with Sound</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(145deg, #2f2f2f, #1b1b1b);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      justify-content: center;
+      background-color: #333;
+      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      max-width: 250px;
+    }
+
+    h1 {
+      margin-bottom: 16px;
+    }
+
+    .dice-img {
+      width: 70px;
+      height: 86px;
+      margin: 30px 0;
+      transition: transform 0.5s ease;
+    }
+
+    button {
+      margin-right: 20px;
+      background-color: #ff5722;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e64a19;
+    }
+
+    #result {
+      margin-top: 12px;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎲 3D Dice Roller</h1>
+    <img src="./one.png" alt="dice" id="dice" class="img-dice" />
+    <button onclick="roll()">Roll Dice</button>
+    <p id="result">Roll a number from 1 to 6</p>
+    
+  </div>
+
+  <script>
+  function roll() {
+    const diceImg = document.getElementById("dice");
+    const resultText = document.getElementById("result");
+
+    const min = 1;
+    const max = 6;
+    const randomNum = Math.floor(Math.random() * (max - min + 1)) + min;
+
+   
+    diceImg.src = `${["one", "two", "three", "four", "five", "six"][randomNum - 1]}.png`;
+
+   
+    diceImg.style.transform = `rotate(${360 * randomNum}deg)`;
+
+   
+    resultText.textContent = `You rolled a ${randomNum}!`;
+  }
+</script>
+
+</body>
+</html>
+<script>
+  // Preload dice images
+  const diceImages = ["one", "two", "three", "four", "five", "six"];
+  diceImages.forEach((img) => {
+    const image = new Image();
+    image.src = `${img}.png`;
+  });
