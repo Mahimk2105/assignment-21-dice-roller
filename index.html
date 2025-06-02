@@ -8,7 +8,8 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(145deg, #2f2f2f, #1b1b1b);
+      background: #2b95d6;
+      background: linear-gradient(90deg, rgba(43, 149, 214, 1) 0%, rgba(31, 101, 182, 1) 12%, rgba(19, 50, 148, 1) 25%, rgba(9, 9, 121, 1) 35%, rgba(8, 27, 133, 1) 41%, rgba(5, 85, 171, 1) 59%, rgba(4, 98, 180, 1) 64%, rgba(9, 108, 173, 1) 70%, rgba(0, 212, 255, 1) 100%);
       color: white;
       display: flex;
       justify-content: center;
@@ -22,7 +23,8 @@
       padding: 1rem;
       border-radius: 16px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-      max-width: 250px;
+      height: 350px;
+      max-width: 600px;
     }
 
     h1 {
@@ -38,6 +40,7 @@
 
     button {
       margin-right: 20px;
+      margin-top: 50px;
       background-color: #ff5722;
       color: white;
       padding: 8px 20px;
@@ -62,7 +65,7 @@
     <h1>🎲 3D Dice Roller</h1>
     <img src="./one.png" alt="dice" id="dice" class="img-dice" />
     <button onclick="roll()">Roll Dice</button>
-    <p id="result">Roll a number from 1 to 6</p>
+    <p id="result">Roll a number!! </p>
     
   </div>
 
@@ -89,9 +92,3 @@
 </body>
 </html>
 <script>
-  // Preload dice images
-  const diceImages = ["one", "two", "three", "four", "five", "six"];
-  diceImages.forEach((img) => {
-    const image = new Image();
-    image.src = `${img}.png`;
-  });
